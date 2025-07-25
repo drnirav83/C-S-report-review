@@ -1,4 +1,4 @@
-src/components/Header.tsx
+/components/Header.tsx
 export function Header() {
   return (
     <header>
