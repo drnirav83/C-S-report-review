@@ -1,19 +1,19 @@
 // src/App.tsx
-import { Route, Switch } from "wouter"
-import { Home } from "./pages/Home"
-import { Upload } from "./pages/Upload"
-import { Header } from "./components/Header"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Header } from './components/Header'
+import LandingPage from './pages/LandingPage'
+import UploadPage from './pages/UploadPage'
 
-export default function App() {
+function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <main>
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/upload" component={Upload} />
-        </Switch>
-      </main>
-    </>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/upload" element={<UploadPage />} />
+      </Routes>
+    </Router>
   )
 }
+
+export default App
