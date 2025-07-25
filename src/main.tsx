@@ -1,14 +1,15 @@
-// src/App.tsx
+// src/main.tsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from './lib/queryClient'
-import { Header } from './components/Header'
+import App from './App'
+import './index.css'
 
-function App() {
-  return (
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <Header />
+      <App />
     </QueryClientProvider>
-  )
-}
-
-export default App
+  </React.StrictMode>
+)
