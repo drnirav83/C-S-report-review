@@ -2,63 +2,52 @@
 import { useState } from 'react'
 
 export default function CorrectionPage() {
-  const [reportData, setReportData] = useState({
-    organism: 'E. coli',
-    site: 'Urine',
-    ast: [
-      { antibiotic: 'Ampicillin', result: 'Resistant' },
-      { antibiotic: 'Nitrofurantoin', result: 'Sensitive' },
-    ],
-  })
-
-  const [corrections, setCorrections] = useState(reportData.ast)
-
-  const handleChange = (index: number, newResult: string) => {
-    const updated = [...corrections]
-    updated[index].result = newResult
-    setCorrections(updated)
-  }
+  const [comments, setComments] = useState('')
+  const [approved, setApproved] = useState(false)
 
   const handleSubmit = () => {
-    console.log('Corrected AST submitted:', corrections)
-    alert('Corrections submitted!')
+    if (approved) {
+      alert('Report Approved ✅ (Mock action)')
+    } else {
+      alert('Corrections Submitted ✏️ (Mock action)')
+    }
   }
 
   return (
     <div style={{ padding: '1rem' }}>
-      <h2>Correction Page</h2>
-      <p><strong>Organism:</strong> {reportData.organism}</p>
-      <p><strong>Site:</strong> {reportData.site}</p>
+      <h2>Microbiologist Correction Page</h2>
 
-      <table border={1} cellPadding={6}>
-        <thead>
-          <tr>
-            <th>Antibiotic</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          {corrections.map((entry, idx) => (
-            <tr key={idx}>
-              <td>{entry.antibiotic}</td>
-              <td>
-                <select
-                  value={entry.result}
-                  onChange={(e) => handleChange(idx, e.target.value)}
-                >
-                  <option value="Sensitive">Sensitive</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Resistant">Resistant</option>
-                </select>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <p><strong>Organism:</strong> E. coli</p>
+      <p><strong>Specimen:</strong> Urine</p>
+      <p><strong>Site:</strong> UTI</p>
 
-      <button onClick={handleSubmit} style={{ marginTop: '1rem' }}>
-        Submit Corrections
-      </button>
+      <h3>AI Suggestions:</h3>
+      <ul>
+        <li>Amikacin reported sensitive — not valid for Enterococcus</li>
+        <li>Vancomycin included — likely an error</li>
+      </ul>
+
+      <textarea
+        placeholder="Comments or corrections..."
+        value={comments}
+        onChange={(e) => setComments(e.target.value)}
+        rows={4}
+        style={{ width: '100%', marginTop: '1rem' }}
+      />
+
+      <div style={{ marginTop: '1rem' }}>
+        <label>
+          <input
+            type="checkbox"
+            checked={approved}
+            onChange={(e) => setApproved(e.target.checked)}
+          />{' '}
+          Approve report without changes
+        </label>
+      </div>
+
+      <br />
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   )
 }
