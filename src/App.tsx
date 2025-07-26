@@ -5,6 +5,7 @@ import LandingPage from './pages/Home'
 import UploadPage from './pages/Upload'
 import ReviewPage from './pages/ReviewPage'
 import CorrectionPage from './pages/CorrectionPage'
+import TechnicianApprovalPage from './pages/TechnicianApprovalPage'
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/review" element={<ReviewPage />} />
-        <Route path="/correction" element={<CorrectionPage />} />
+        <Route path="/correct" element={<CorrectionPage />} />
+        <Route path="/approve" element={<TechnicianApprovalPage />} />
       </Routes>
     </Router>
   )
