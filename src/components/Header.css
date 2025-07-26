@@ -1,20 +1,19 @@
-/* src/components/Header.css */
-header {
-  padding: 1rem;
-  background-color: #f0f4f8;
+.header {
+  padding: 2rem;
+  background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
 }
 
-nav {
-  margin-top: 0.5rem;
+.nav {
+  margin-top: 1rem;
 }
 
-nav a {
-  margin: 0 0.5rem;
+.nav a {
+  margin-right: 1rem;
   text-decoration: none;
-  color: #007acc;
+  color: black;
 }
 
-nav a:hover {
+.nav a:hover {
   text-decoration: underline;
 }
