@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 export function Header() {
   return (
-    <header style={{ padding: '1rem', backgroundColor: '#f4f4f4' }}>
-      <h1>Microcheck Report Aid</h1>
-      <p>Validate microbiology culture & sensitivity reports</p>
+    <header style={{ padding: '2rem', backgroundColor: '#f0f0f0' }}>
+      <h1>Welcome to Microcheck Report Aid</h1>
+      <p>This app helps validate microbiology culture & sensitivity reports.</p>
       <nav style={{ marginTop: '1rem' }}>
         <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
         <Link to="/upload" style={{ marginRight: '1rem' }}>Upload</Link>
